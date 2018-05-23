@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Newsletter\Exceptions;
+namespace Sicaboy\Newsletter\Exceptions;
 
 use Exception;
 
