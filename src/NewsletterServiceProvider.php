@@ -21,13 +21,10 @@ class NewsletterServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Newsletter::class, function () {
-            $mailChimp = new Mailchimp(config('newsletter.apiKey'));
-
-            $mailChimp->verify_ssl = config('newsletter.ssl', true);
-
+            $mailChimpCollection = MailChimpCollection::createFromConfig(config('newsletter.apiKeys'));
             $configuredLists = NewsletterListCollection::createFromConfig(config('newsletter'));
 
-            return new Newsletter($mailChimp, $configuredLists);
+            return new Newsletter($mailChimpCollection, $configuredLists);
         });
 
         $this->app->alias(Newsletter::class, 'newsletter');

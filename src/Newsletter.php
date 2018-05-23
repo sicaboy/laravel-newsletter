@@ -6,17 +6,30 @@ use DrewM\MailChimp\MailChimp;
 
 class Newsletter
 {
-    /** @var \DrewM\MailChimp\MailChimp */
+    /**
+     * @var MailchimpCollection
+     */
+    protected $mailChimps;
+
+    /**
+     * Current handling
+     * @var \DrewM\MailChimp\MailChimp
+     */
     protected $mailChimp;
 
     /** @var \Spatie\Newsletter\NewsletterListCollection */
     protected $lists;
 
-    public function __construct(MailChimp $mailChimp, NewsletterListCollection $lists)
+    public function __construct(MailchimpCollection $mailChimps, NewsletterListCollection $lists)
     {
-        $this->mailChimp = $mailChimp;
-
+        $this->mailChimps = $mailChimps;
+        $this->mailChimp = $this->mailChimps->getDefault();
         $this->lists = $lists;
+    }
+
+    public function switchAccount($name)
+    {
+        $this->mailChimp = $this->mailChimps->findByName($name);
     }
 
     public function subscribe(string $email, array $mergeFields = [], string $listName = '', array $options = [])
