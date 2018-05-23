@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Newsletter\\": "src"
+            "Sicaboy\\Newsletter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Newsletter\\Test\\": "tests"
+            "Sicaboy\\Newsletter\\Test\\": "tests"
         }
     },
     "extra": {
