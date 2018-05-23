@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Newsletter;
+namespace Sicaboy\Newsletter;
 
 use Illuminate\Support\Facades\Facade;
 

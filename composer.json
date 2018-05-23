@@ -1,12 +1,12 @@
 {
-    "name": "spatie/laravel-newsletter",
+    "name": "sicaboy/laravel-newsletter",
     "description": "Manage newsletters in Laravel",
     "keywords": [
         "laravel",
         "newsletter",
         "mailchimp"
     ],
-    "homepage": "https://github.com/spatie/laravel-newsletter",
+    "homepage": "https://github.com/sicaboy/laravel-newsletter",
     "license": "MIT",
     "authors": [
         {
@@ -38,10 +38,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Newsletter\\NewsletterServiceProvider"
+                "Sicaboy\\Newsletter\\NewsletterServiceProvider"
             ],
             "aliases": {
-                "Newsletter": "Spatie\\Newsletter\\NewsletterFacade"
+                "Newsletter": "Sicaboy\\Newsletter\\NewsletterFacade"
             }
         }
     },
