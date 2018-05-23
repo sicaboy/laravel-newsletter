@@ -9,7 +9,7 @@ class Newsletter
     /**
      * @var MailchimpCollection
      */
-    protected $mailChimps;
+    protected $mailChimpCollection;
 
     /**
      * Current handling
@@ -20,16 +20,16 @@ class Newsletter
     /** @var \Spatie\Newsletter\NewsletterListCollection */
     protected $lists;
 
-    public function __construct(MailchimpCollection $mailChimps, NewsletterListCollection $lists)
+    public function __construct(MailchimpCollection $mailChimpCollection, NewsletterListCollection $lists)
     {
-        $this->mailChimps = $mailChimps;
-        $this->mailChimp = $this->mailChimps->getDefault();
+        $this->mailChimpCollection = $mailChimpCollection;
+        $this->mailChimp = $mailChimpCollection->getDefault();
         $this->lists = $lists;
     }
 
     public function switchAccount($name)
     {
-        $this->mailChimp = $this->mailChimps->findByName($name);
+        $this->mailChimp = $this->mailChimpCollection->findByName($name);
     }
 
     public function subscribe(string $email, array $mergeFields = [], string $listName = '', array $options = [])

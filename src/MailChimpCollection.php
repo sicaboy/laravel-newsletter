@@ -23,17 +23,14 @@ class MailChimpCollection extends Collection
 
     public function findByName(string $name): MailChimp
     {
-        foreach ($this->items as $item) {
-            if ($item->getName() === $name) {
-                return $item;
-            }
+        if(!$this->get($name)){
+            throw new \Exception('Cannot find MailChimp object with name: ' . $name);
         }
-
-        throw new \Exception('Cannot find MailChimp object with name: ' . $name);
+        return$this->get($name);
     }
 
     public function getDefault(): MailChimp
     {
-        return $this->items->first();
+        return current($this->items);
     }
 }
