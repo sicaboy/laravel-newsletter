@@ -75,7 +75,10 @@ return [
      * The API key of a MailChimp account. You can find yours at
      * https://us10.admin.mailchimp.com/account/api-key-popup/.
      */
-    'apiKey' => env('MAILCHIMP_APIKEY'),
+    'apiKeys' => [
+        'name1'=> 'token1',
+        'name2'=> 'token2',
+    ],
 
     /*
      * The listName to use when no listName has been specified in a method.
@@ -125,6 +128,11 @@ After you've installed the package and filled in the values in the config-file w
 
 ```php
 use Newsletter;
+```
+
+### Switching to another account
+```php
+Newsletter::switchAccount('name1');
 ```
 
 ### Subscribing, updating and unsubscribing
